@@ -21,10 +21,13 @@ jobs:
           gradle-version: '8.4'
 
       - name: Generate Gradle Wrapper
-        run: gradle wrapper --gradle-version 8.4
+        run: |
+          cd NotificationEdgePanel_v2
+          gradle wrapper --gradle-version 8.4
 
       - name: Build APK
         run: |
+          cd NotificationEdgePanel_v2
           chmod +x gradlew
           ./gradlew assembleDebug --stacktrace
 
@@ -32,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: NotificationEdgePanel_v2/app/build/outputs/apk/debug/app-debug.apk
