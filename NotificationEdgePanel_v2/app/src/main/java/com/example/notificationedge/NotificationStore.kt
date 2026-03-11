@@ -162,7 +162,8 @@ object NotificationStore {
     }
 
     private fun broadcastUpdate(context: Context) {
-        val intent = android.content.Intent("com.example.notificationedge.UPDATE_PANEL")
+        val intent = Intent("com.example.notificationedge.UPDATE_PANEL")
+        intent.setPackage(context.packageName)
         context.sendBroadcast(intent)
     }
 
