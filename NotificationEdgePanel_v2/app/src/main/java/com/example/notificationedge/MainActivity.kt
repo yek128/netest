@@ -155,12 +155,6 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    override fun onResume() {
-        super.onResume()
-        // 권한 상태 새로고침
-        recreate()
-    }
-
     private fun isNotificationListenerEnabled(): Boolean {
         val enabledListeners = Settings.Secure.getString(
             contentResolver, "enabled_notification_listeners"
